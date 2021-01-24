@@ -1,4 +1,12 @@
 [
   {
+    "postDate": Date(1611523303000),
+    "postTitle": "Latest from Periphery, Squirrel Nut Zippers, and Polyphia",
+    "postContent": "This is where the text for the blog post would normally go, but I'm not going to bother to write the whole thing out in detail right now. Also this comes from DB."
+  },
+  {
+    "postDate": Date(1611350503000),
+    "postTitle": "Latest from Incognito, Bent Knee, and Red Handed Denial",
+    "postContent": "This is a different blog post, here I am writing out separate text for it so that it's obviously different when rendered. Also this comes from DB."
   }
 ]

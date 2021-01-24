@@ -1,7 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Query } from 'react-apollo';
+import gql from 'graphql-tag';
+
 import BlogPost from '../components/blog/BlogPost';
 import MidPageAd from '../components/homepage/MidPageAd';
+
+const GET_BLOG_POSTS = gql`
+  query blogPosts {
+    blogPosts {
+      id
+      postDate
+      postTitle
+      postContent
+    }
+  }
+`;
 
 const LandingPage = () => (
   <div>
@@ -27,24 +41,27 @@ const LandingPage = () => (
     </div>
     <main>
       <h3>The Latest</h3>
-      <div className="homeBlogPostContainer">
-        <BlogPost postInfo={{
-          postDate: 'Sunday, January 24 2021',
-          postTitle: 'Lastest from Periphery, Squirrel Nut Zippers, and Polyphia',
-          postContent: 'This is where the text for the blog post would normally go, but I\'m not going to bother to write the whole thing out in detail right now'
-        }} />
-        <Link className="blogPostLink" to="/blog">Read More of The Latest</Link>
-      </div>
-      <MidPageAd type="bistro" />
-      <div className="homeBlogPostContainer">
-        <BlogPost postInfo={{
-          postDate: 'Friday, January 22 2021',
-          postTitle: 'Lastest from Incognito, Bent Knee, and Red Handed Denail',
-          postContent: 'This is a different blog post, here I am writing out separate text for it so that it\'s obviously different when rendered'
-        }} />
-        <Link className="blogPostLink" to="/blog">Read More of The Latest</Link>
-      </div>
-      <MidPageAd type="detour" />
+      <Query
+        query={GET_BLOG_POSTS}
+      >
+        {({ data, loading }) => {
+          console.log(data)
+          return loading ? null : (
+            <>
+              <div className="homeBlogPostContainer">
+                <BlogPost postInfo={data.blogPosts[0]} />
+                <Link className="blogPostLink" to="/blog">Read More of The Latest</Link>
+              </div>
+              <MidPageAd type="bistro" />
+              <div className="homeBlogPostContainer">
+                <BlogPost postInfo={data.blogPosts[1]} />
+                <Link className="blogPostLink" to="/blog">Read More of The Latest</Link>
+              </div>
+              <MidPageAd type="detour" />
+            </>
+          )
+        }}
+      </Query>
     </main>
     <div className="aboutUs">
       <h4 className="aboutUsHeader">

@@ -1,9 +1,9 @@
 {
-  "name": "media-list",
+  "name": "bsr",
   "version": "1.0.0",
-  "description": "MAL but for everything",
+  "description": "Birch Street Radio website",
   "main": "index.js",
-  "repository": "https://github.com/a-murph/Media-List.git",
+  "repository": "https://github.com/a-murph/bsr.git",
   "author": "Andrew Murphy <ajmurph544@gmail.com>",
   "license": "GNU General Public License 3.0",
   "dependencies": {

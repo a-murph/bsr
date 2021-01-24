@@ -6,7 +6,7 @@ const app = express();
 const mongoose = require('mongoose');
 
 // Set up mongoose connection
-const mongo = 'mongodb://localhost:27017/media-list'
+const mongo = 'mongodb://localhost:27017/bsr'
 mongoose.connect(mongo, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error: '));
