@@ -9,7 +9,6 @@ const BlogPost = ({ postInfo }) => {
     <article className="blogPost">
       <div className="blogPostDate">{postDate.toDateString()}</div>
       <h4 className="blogPostTitle">{postInfo.postTitle}</h4>
-      <hr className="blogPostSeparator" />
       <div className="blogPostContent">
         {postInfo.postContent}
       </div>
